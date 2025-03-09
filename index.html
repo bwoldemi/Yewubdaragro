@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fixed Navbar with Background Image</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 56px;
+            /* Prevent content from being hidden behind the navbar */
+        }
+
+        .hero-section {
+            background: url('img/teff_tarming.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        /* Optional: Add an overlay effect */
+        .hero-overlay {
+            color: white;
+            /* background: rgba(0, 0, 0, 0.5);*/
+            /* Adjust transparency */
+            padding: 50px;
+            border-radius: 10px;
+        }
+
+
+        .about-us-section {
+            height: 500px;
+            /* Adjust height */
+            background-color: #f8f9fa;
+            /* Light gray background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 100vh;
+            /* Push the section to the bottom initially */
+        }
+
+        .mybox {
+            max-width: 800px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+            margin-top: 80px;
+            /* To avoid overlap with the fixed nav */
+        }
+
+        /* Heading Styling */
+        h1 {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-in-out;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h1 span {
+            color: #4facfe;
+        }
+
+        /* Paragraph Styling */
+        p {
+            font-size: 1.1rem;
+            color: #34495e;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            animation: slideIn 1.2s ease-in-out;
+        }
+
+        p strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        /* Decorative Icon */
+        .icon {
+            font-size: 3rem;
+            color: #4facfe;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+
+
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .navbar-brand,
+        .nav-link {
+            font-size: 1.5rem;
+            /* Increases text size */
+        }
+
+        .navbar-toggler {
+            transform: scale(1.5);
+            /* Makes the toggler icon bigger */
+        }
+
+        /* Image Container Styling */
+        .image-container {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            margin-top: 80px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .product-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 80px; /* To avoid overlap with the fixed nav */
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .product-box {
+      flex: 1 1 calc(33.333% - 40px);
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .product-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+      z-index: 1;
+    }
+
+    .product-box h2 {
+      font-size: 1.8rem;
+      color: #fff;
+      margin-bottom: 15px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .product-box p {
+      font-size: 1rem;
+      color: #fff;
+      line-height: 1.6;
+      z-index: 2;
+      position: relative;
+    }
+
+    /* Background Images for Each Product Box */
+    .product-box.horticulture {
+      background: url('/img/wheat_crop.jpg') no-repeat center center/cover;
+    }
+
+    .product-box.dairy {
+      background: url('/img/dairy.jpeg') no-repeat center center/cover;
+    }
+
+    .product-box.seed {
+      background: url('/img/teff_tarming.jpg') no-repeat center center/cover;
+    }
+
+    .product-box.agro-chemicals {
+      background: url('/img/agro_checmicals.jpeg') no-repeat center center/cover;
+    }
+
+    .product-box.poultry {
+      background: url('/img/poltur_farming.jpg') no-repeat center center/cover;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .product-box {
+        flex: 1 1 calc(50% - 40px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-box {
+        flex: 1 1 100%;
+      }
+    }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <style>
+        .navbar-brand,
+        .nav-link {
+            font-size: 1.2rem;
+            /* Increases text size */
+            color: black;
+
+        }
+
+        .navbar-toggler {
+
+            transform: scale(1.5);
+            /* Makes the toggler icon bigger */
+        }
+    </style>
+
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about-us">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <!--<li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Sister Company’s</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Blogs</a></li>-->
+                    <li class="nav-item"><a class="nav-link" href="#"> Phone: +251911505611  Email: yenewubagriculture@gmail.com </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Background Image Section -->
+    <div class="hero-section">
+        <div class="container">
+            <div class="hero-overlay">
+                <h1 class="h1"><strong>Yewubdar Agriculture Development Organization </strong></h1>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="home">
+        <div class="row">
+            <div class="col">
+                <div class="mybox">
+                    <div class="icon">
+                        <i class="fas fa-seedling"></i> <!-- Seedling icon for agriculture theme -->
+                    </div>
+                    <h1>Welcome to <span>Yewubdar</span></h1>
+                    <p>
+                        <strong>Your trusted partner in agricultural development.</strong> We are dedicated to enhancing
+                        sustainable
+                        agriculture through our diverse range of services, including horticulture development, dairy
+                        farming,
+                        seed
+                        multiplication, agrochemical supply, and poultry farming. Join us in fostering a greener, more
+                        productive
+                        world.
+                    </p>
+                    <p>
+                        <strong>Our mission</strong> is to advance agricultural productivity and sustainability by
+                        promoting
+                        mechanization, integrating smart agriculture technologies, and supplying quality agricultural
+                        inputs. We
+                        are
+                        committed to promoting environmentally sustainable practices, empowering women in agriculture,
+                        and
+                        fostering
+                        a future where farming is both profitable and planet-friendly. Together, we cultivate growth,
+                        nurture
+                        nature, and transform lives.
+                    </p>
+
+                </div>
+            </div>
+            <div class="col">
+                <div class="image-container">
+                    <img src="img/certficate_for_mechanization.jpg" alt="Agriculture Image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="about-us">
+        <div class="row">
+            <div class="col">
+                <div class="image-container">
+                    <img src="img/certficate_for_mechanization.jpg" alt="Agriculture Image">
+                </div>
+            </div>
+            <div class="col">
+                <div class="mybox">
+
+                    <h1>About US</h1>
+
+                    <p> Yewbdar Sintayehu Agriculture Development Organization is a <strong> female-owned organization
+                        </strong> established in
+                        2022. The organization obtained 205 hectares of land in Jawi Woreda, Awi Zone, Amhara Region,
+                        Ethiopia,
+                        for agricultural mechanization through investment. The company has participated in government
+                        wheat
+                        production initiatives and has successfully contributed to food security. The organization also
+                        acquired
+                        10 hectares of irrigable land in the Rib River Irrigation Corridor located in Fogera District,
+                        South
+                        Gondar Zone, for the development of horticulture, seed multiplication, and the introduction of
+                        new
+                        technologies to support smallholder farmers.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container" id="products">
+        <!-- Product Display Section -->
+        <div class="product-section">
+            <!-- Horticulture Development -->
+            <div class="product-box horticulture">
+                <h2>Horticulture Development</h2>
+                <p>
+                    Specializing in onion seed multiplication, vegetable seedlings supply, and vegetable farming.
+                </p>
+            </div>
+
+            <!-- Dairy Farming -->
+            <div class="product-box dairy">
+                <h2>Dairy Farming</h2>
+                <p>
+                    Improving dairy production by keeping indigenous productive cattle breeds through modern farming
+                    techniques. We prioritize animal welfare and sustainable practices.
+                </p>
+            </div>
+
+            <!-- Seed Multiplication -->
+            <div class="product-box seed">
+                <h2>Seed Multiplication</h2>
+                <p>
+                    Producing high-quality, certified seeds of onion. Our seeds are carefully cultivated to ensure
+                    superior germination, vigor, and yield.
+                </p>
+            </div>
+
+            <!-- Agro-Chemicals Supply -->
+            <div class="product-box agro-chemicals">
+                <h2>Agro-Chemicals Supply</h2>
+                <p>
+                    Providing a wide range of trusted and effective agro-chemicals, including pesticides, herbicides,
+                    and fungicides. We prioritize responsible use and environmental safety.
+                </p>
+            </div>
+
+            <!-- Poultry Farming -->
+            <div class="product-box poultry">
+                <h2>Poultry Farming</h2>
+                <p>
+                    Supporting poultry farmers with high-yielding egg and meat day-old chicks. We promote efficient and
+                    sustainable poultry production.
+                </p>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function scrollToAboutUs(event) {
+            event.preventDefault(); // Prevent default jump
+            const aboutUsSection = document.getElementById("about-us");
+            const navbarHeight = document.querySelector(".navbar").offsetHeight;
+            const offsetTop = aboutUsSection.offsetTop - navbarHeight; // Adjust for fixed navbar
+
+            window.scrollTo({
+                top: offsetTop,
+                behavior: "smooth"
+            });
+        }
+    </script>
+</body>
+
+</html>

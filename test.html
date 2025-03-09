@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yewubdar Agriculture Development Organization</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    /* Navigation Menu */
+    nav {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 15px 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    nav ul li {
+      margin: 5px 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 10px 15px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background: #4facfe;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Product Display Section */
+    .product-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 80px; /* To avoid overlap with the fixed nav */
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .product-box {
+      flex: 1 1 calc(33.333% - 40px);
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .product-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+      z-index: 1;
+    }
+
+    .product-box h2 {
+      font-size: 1.8rem;
+      color: #fff;
+      margin-bottom: 15px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .product-box p {
+      font-size: 1rem;
+      color: #fff;
+      line-height: 1.6;
+      z-index: 2;
+      position: relative;
+    }
+
+    /* Background Images for Each Product Box */
+    .product-box.horticulture {
+      background: url('https://via.placeholder.com/400x300?text=Horticulture') no-repeat center center/cover;
+    }
+
+    .product-box.dairy {
+      background: url('https://via.placeholder.com/400x300?text=Dairy+Farming') no-repeat center center/cover;
+    }
+
+    .product-box.seed {
+      background: url('https://via.placeholder.com/400x300?text=Seed+Multiplication') no-repeat center center/cover;
+    }
+
+    .product-box.agro-chemicals {
+      background: url('https://via.placeholder.com/400x300?text=Agro-Chemicals') no-repeat center center/cover;
+    }
+
+    .product-box.poultry {
+      background: url('https://via.placeholder.com/400x300?text=Poultry+Farming') no-repeat center center/cover;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .product-box {
+        flex: 1 1 calc(50% - 40px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-box {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+  <!-- Add Google Fonts for Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation Menu -->
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Resources</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="#">Sister Company’s</a></li>
+      <li><a href="#">Careers</a></li>
+      <li><a href="#">Blogs</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Product Display Section -->
+  <div class="product-section">
+    <!-- Horticulture Development -->
+    <div class="product-box horticulture">
+      <h2>Horticulture Development</h2>
+      <p>
+        Specializing in onion seed multiplication, vegetable seedlings supply, and vegetable farming.
+      </p>
+    </div>
+
+    <!-- Dairy Farming -->
+    <div class="product-box dairy">
+      <h2>Dairy Farming</h2>
+      <p>
+        Improving dairy production by keeping indigenous productive cattle breeds through modern farming techniques. We prioritize animal welfare and sustainable practices.
+      </p>
+    </div>
+
+    <!-- Seed Multiplication -->
+    <div class="product-box seed">
+      <h2>Seed Multiplication</h2>
+      <p>
+        Producing high-quality, certified seeds of onion. Our seeds are carefully cultivated to ensure superior germination, vigor, and yield.
+      </p>
+    </div>
+
+    <!-- Agro-Chemicals Supply -->
+    <div class="product-box agro-chemicals">
+      <h2>Agro-Chemicals Supply</h2>
+      <p>
+        Providing a wide range of trusted and effective agro-chemicals, including pesticides, herbicides, and fungicides. We prioritize responsible use and environmental safety.
+      </p>
+    </div>
+
+    <!-- Poultry Farming -->
+    <div class="product-box poultry">
+      <h2>Poultry Farming</h2>
+      <p>
+        Supporting poultry farmers with high-yielding egg and meat day-old chicks. We promote efficient and sustainable poultry production.
+      </p>
+    </div>
+
+    
+  </div>
+</body>
+</html>
