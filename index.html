@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fixed Navbar with Background Image</title>
-  
-    <link rel="stylesheet" href="./style/bootstrap.min.css">
+    <title> Yewbdar</title>
+
+    <link rel="stylesheet" href="style/bootstrap.min.css">
     <style>
         body {
             padding-top: 56px;
@@ -93,7 +93,12 @@
             animation: bounce 2s infinite;
         }
 
-
+        .gallery-item {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            cursor: pointer;
+        }
 
 
         /* Keyframe Animations */
@@ -191,91 +196,100 @@
         }
 
         .product-section {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 80px; /* To avoid overlap with the fixed nav */
-      width: 100%;
-      max-width: 1200px;
-    }
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 80px;
+            /* To avoid overlap with the fixed nav */
+            width: 100%;
+            max-width: 1200px;
+        }
 
-    .product-box {
-      flex: 1 1 calc(33.333% - 40px);
-      background: rgba(255, 255, 255, 0.8);
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      min-height: 300px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+        .product-box {
+            flex: 1 1 calc(33.333% - 40px);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .product-box::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-      z-index: 1;
-    }
+        .product-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent overlay */
+            z-index: 1;
+        }
 
-    .product-box h2 {
-      font-size: 1.8rem;
-      color: #fff;
-      margin-bottom: 15px;
-      z-index: 2;
-      position: relative;
-    }
+        .product-box h2 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 15px;
+            z-index: 2;
+            position: relative;
+        }
 
-    .product-box p {
-      font-size: 1rem;
-      color: #fff;
-      line-height: 1.6;
-      z-index: 2;
-      position: relative;
-    }
+        .product-box p {
+            font-size: 1rem;
+            color: #fff;
+            line-height: 1.6;
+            z-index: 2;
+            position: relative;
+        }
 
-    /* Background Images for Each Product Box */
-    .product-box.horticulture {
-      background: url('img/wheat_crop.jpg') no-repeat center center/cover;
-    }
+        /* Background Images for Each Product Box */
+        .product-box.horticulture {
+            background: url('img/wheat_crop.jpg') no-repeat center center/cover;
+        }
 
-    .product-box.dairy {
-      background: url('img/dairy.jpeg') no-repeat center center/cover;
-    }
+        .product-box.dairy {
+            background: url('img/dairy.jpeg') no-repeat center center/cover;
+        }
 
-    .product-box.seed {
-      background: url('img/teff_tarming.jpg') no-repeat center center/cover;
-    }
+        .product-box.seed {
+            background: url('img/img1.jpg') no-repeat center center/cover;
+        }
 
-    .product-box.agro-chemicals {
-      background: url('img/agro_checmicals.jpeg') no-repeat center center/cover;
-    }
+        .product-box.agro-chemicals {
+            background: url('img/agro_checmicals.jpeg') no-repeat center center/cover;
+        }
 
-    .product-box.poultry {
-      background: url('img/poltur_farming.jpg') no-repeat center center/cover;
-    }
+        .product-box.poultry {
+            background: url('img/poltur_farming.jpg') no-repeat center center/cover;
+        }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .product-box {
-        flex: 1 1 calc(50% - 40px);
-      }
-    }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .product-box {
+                flex: 1 1 calc(50% - 40px);
+            }
+        }
 
-    @media (max-width: 480px) {
-      .product-box {
-        flex: 1 1 100%;
-      }
-    }
+        @media (max-width: 480px) {
+            .product-box {
+                flex: 1 1 100%;
+            }
+        }
+
+        .carousel-inner img {
+            height: 600px;
+            /* Set desired height */
+            object-fit: cover;
+            /* Crop to fit */
+        }
     </style>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -305,29 +319,35 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#"></a>
+            <a class="navbar-brand" href="#"> <strong> Yewubdar</strong></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                   <!-- <li class="nav-item"><a class="nav-link" href="#">Home</a></li>-->
                     <li class="nav-item"><a class="nav-link" href="#about-us">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
-                    <!--<li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                   <!-- <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Sister Company’s</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Careers</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Blogs</a></li>-->
-                    <li class="nav-item"><a class="nav-link" href="#"> Phone: +251911505611  Email: yenewubagriculture@gmail.com </a></li>
+                    
+                            <li class="nav-item">
+                                <a class="nav-link contact-info" href="#">
+                                    <i class="fas fa-phone-alt"></i> +251 911 505 611 &nbsp; | &nbsp;
+                                    <i class="fas fa-envelope"></i> yenewubagriculture@gmail.com
+                                </a>
+                            </li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Background Image Section -->
-    <div class="hero-section">
+    <!--<div class="hero-section">
         <div class="container">
             <div class="hero-overlay">
                 <h1 class="h1"><strong>Yewubdar Agriculture Development Organization </strong></h1>
@@ -335,7 +355,41 @@
 
             </div>
         </div>
+    </div> -->
+    <!-- Carousel-->
+    <div class="container-fluid">
+        <div class="row">
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/slide1.jpg" class="d-block w-100" alt="Slide 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/slide2.jpg" class="d-block w-100" alt="Slide 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/teff_tarming.jpg" class="d-block w-100" alt="Slide 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/wheat_crop_at _jawi.jpg" class="d-block w-100" alt="Slide 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/teff_tarming.jpg" class="d-block w-100" alt="Slide 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
     </div>
+    <!-- End Carousel-->
 
     <div class="container" id="home">
         <div class="row">
@@ -383,7 +437,7 @@
         <div class="row">
             <div class="col">
                 <div class="image-container">
-                    <img src="img/certficate_for_mechanization.jpg" alt="Agriculture Image">
+                    <img src="img/interiview _amc.jpg" alt="Agriculture Image">
                 </div>
             </div>
             <div class="col">
@@ -463,12 +517,55 @@
 
         </div>
     </div>
+    <div class="container mt-4" id="gallery">
+        <div class="row g-3">
+            <!-- Image 1 -->
+            <div class="col-md-4">
+                <img src="img/certficate_for_mechanization.jpg" class="gallery-item img-fluid" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-src="img/photo1.jpg" alt="Image 1">
+            </div>
+            <!-- Image 2 -->
+            <div class="col-md-4">
+                <img src="img/feed_the_future_consultation _workshop.jpg" class="gallery-item img-fluid" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-src="img/photo2.jpg" alt="Image 2">
+            </div>
+            <!-- Video -->
+            <div class="col-md-4">
+                <video class="gallery-item img-fluid" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-src="video/sample.mp4" controls>
+                    <source src="video/IMG_2426.MP4" type="video/mp4">
+                </video>
+            </div>
+            <div class="col-md-4">
+                <video class="gallery-item img-fluid" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-src="video/sample.mp4" controls>
+                    <source src="video/Furrow_irrgation_for_Nafis_Onion_Seed_multiplication.MP4" type="video/mp4">
+                </video>
+            </div>
+            <div class="col-md-4">
+                <video class="gallery-item img-fluid" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-src="video/sample.mp4" controls>
+                    <source src="video/Land_preparation_for_Onion_seed_multiplication.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="col-md-4">
+                <video class="gallery-item img-fluid" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-src="video/sample.mp4" controls>
+                    <source src="video/Nafis_Onion_bulb_planting.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="col-md-4">
+                <video class="gallery-item img-fluid" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-src="video/sample.mp4" controls>
+                    <source src="video/Nafis_Onion_seed_mupliplication.MP4" type="video/mp4">
+                </video>
+            </div>
+            
+         
+        </div>
+    </div>
+    
+
 
 
 
 
 
     <script src="js/bootstrap.bundle.min.js"></script>
+
     <script>
         function scrollToAboutUs(event) {
             event.preventDefault(); // Prevent default jump
@@ -482,6 +579,35 @@
             });
         }
     </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const modalImage = document.getElementById('modalImage');
+        const modalVideo = document.getElementById('modalVideo');
+        const modalVideoSrc = document.getElementById('modalVideoSrc');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                let src = this.getAttribute('data-bs-src');
+
+                // If clicked item is an image
+                if (this.tagName === 'IMG') {
+                 
+                    modalImage.src = src;
+                    modalImage.classList.remove('d-none');
+                    modalVideo.classList.add('d-none');
+                }
+                // If clicked item is a video
+                else if (this.tagName === 'VIDEO') {
+                    modalVideoSrc.src = src;
+                    modalVideo.load();
+                    modalVideo.classList.remove('d-none');
+                    modalImage.classList.add('d-none');
+                }
+            });
+        });
+    });
+</script>
 </body>
 
 </html>
